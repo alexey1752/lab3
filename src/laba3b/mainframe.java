@@ -1,4 +1,4 @@
-package laba3b;
+package lab3;
 
 public class mainframe extends  JFrame {
 

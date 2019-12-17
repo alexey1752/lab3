@@ -1,4 +1,4 @@
-package laba3b;
+package lab3;
 import javax.swing.table.AbstractTableModel;
 
 public class GornerTableModel  extends AbstractTableModel {
