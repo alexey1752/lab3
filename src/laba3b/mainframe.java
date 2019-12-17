@@ -1,8 +1,6 @@
 package laba3b;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,9 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
+
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -42,6 +38,7 @@ public class mainframe extends  JFrame {
     private JMenuItem saveToTextMenuItem;
     private JMenuItem saveToGraphicsMenuItem;
     private JMenuItem searchValueMenuItem;
+    private JMenuItem informationItem;
 
    
 
@@ -72,6 +69,8 @@ public class mainframe extends  JFrame {
         menu.add(fileMenu);
         JMenu tableMenu = new JMenu("Таблица");
         menu.add(tableMenu);
+        JMenu spravkaMenu = new JMenu("Справка");
+        menu.add(spravkaMenu);
        
 
         Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
@@ -119,6 +118,30 @@ public class mainframe extends  JFrame {
         searchValueMenuItem = tableMenu.add(searchValueAction);
      // По умолчанию пункт меню является недоступным (данных ещѐ нет)
         searchValueMenuItem.setEnabled(false);
+        Action aboutProgramAction=new AbstractAction("О программе") {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Box information=Box.createVerticalBox();
+                JLabel author = new JLabel("Автор: Борисовец Алексей");
+                JLabel group = new JLabel("студент 6 группы");
+                
+                information.add(Box.createVerticalGlue());
+                information.add(author);
+                information.add(Box.createVerticalStrut(10));
+                information.add(group);
+                information.add(Box.createVerticalStrut(10));
+                
+               
+                information.add(Box.createVerticalGlue());
+
+                JOptionPane.showMessageDialog(mainframe.this,
+                        information, "" +
+                                "О программе", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+        };
+        informationItem=spravkaMenu.add(aboutProgramAction);
+        informationItem.setEnabled(true);
 
 
      // Создать область с полями ввода для границ отрезка и шага
