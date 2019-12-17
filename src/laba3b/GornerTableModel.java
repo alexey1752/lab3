@@ -33,7 +33,7 @@ public class GornerTableModel  extends AbstractTableModel {
     
 	
 	public int getColumnCount() {
-		return 3;
+		return 2;
 	}
 
 	
@@ -46,11 +46,11 @@ public class GornerTableModel  extends AbstractTableModel {
         {
             case 0:
                 return "Значение X";
-            case 1:
-                return "Значение многочлена при прямом порядке коэффицентов";
-           
             default:
-                return "Целая часть палиндром?";
+                return "Значение многочлена при прямом порядке коэффицентов";
+          
+           /* default:
+                return "Целая часть палиндром?";*/
         }
     }
 	

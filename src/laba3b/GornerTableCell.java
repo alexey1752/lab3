@@ -14,8 +14,7 @@ public class GornerTableCell  implements TableCellRenderer {
 	 private JLabel label=new JLabel();
 	 
 	 private String needle = null;
-	 private DecimalFormat formatter =
-	 (DecimalFormat)NumberFormat.getInstance();
+	 private DecimalFormat formatter =(DecimalFormat)NumberFormat.getInstance();
 	 public GornerTableCell() {
 	 // Показывать только 5 знаков после запятой
 	 formatter.setMaximumFractionDigits(5);
@@ -26,8 +25,7 @@ public class GornerTableCell  implements TableCellRenderer {
 	 // Установить в качестве разделителя дробной части точку, а не
 	 // запятую. По умолчанию, в региональных настройках
 	 // Россия/Беларусь дробная часть отделяется запятой
-	 DecimalFormatSymbols dottedDouble =
-	 formatter.getDecimalFormatSymbols();
+	 DecimalFormatSymbols dottedDouble= formatter.getDecimalFormatSymbols();
 	 dottedDouble.setDecimalSeparator('.');
 	
 	 formatter.setDecimalFormatSymbols(dottedDouble);
