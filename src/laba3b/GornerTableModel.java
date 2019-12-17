@@ -1,6 +1,7 @@
-package lab3;
+package laba3b;
 import javax.swing.table.AbstractTableModel;
 
+@SuppressWarnings("serial")
 public class GornerTableModel  extends AbstractTableModel {
 
 	 private Double[] coeff;
@@ -33,7 +34,7 @@ public class GornerTableModel  extends AbstractTableModel {
     
 	
 	public int getColumnCount() {
-		return 2;
+		return 3;
 	}
 
 	
@@ -46,18 +47,32 @@ public class GornerTableModel  extends AbstractTableModel {
         {
             case 0:
                 return "Значение X";
-            default:
+            case 1:
                 return "Значение многочлена при прямом порядке коэффицентов";
           
-           /* default:
-                return "Целая часть палиндром?";*/
+            default:
+                return "Целая часть палиндром?";
         }
     }
 	
 	public Class<?> getColumnClass(int col) {
+		if(col==2) {
+			return Boolean.class;
+		}
         return Double.class;
     }
+	
+	/*boolean isPalindrome(Double s) {
+		
+		  int n = s.length();
+		  for (int i = 0; i < (n/2); ++i) {
+		     if (s.charAt(i) != s.charAt(n - i - 1)) {
+		         return false;
+		     }
+		  }
 
+		  return true;
+		}*/
 	
 	public Object getValueAt(int row, int col) {
 		
@@ -75,8 +90,22 @@ public class GornerTableModel  extends AbstractTableModel {
         }            
         else if (col==1)
             return result1;
-       /* else if (col==2)
-            return 0;//result2;*/
+       else if (col==2) {
+    	   		int integer=result1.intValue();
+    	   		String src=Integer.toString (integer);
+    	   		
+    	        src = src.replaceAll("[\\s]", "").toLowerCase();
+    	        boolean result = true;
+    	        for (int i = 0; i < src.length() / 2; i++) {
+    	            if (src.charAt(i) != src.charAt(src.length() - i - 1)) {
+    	                result = false;
+    	                break;
+    	            }
+    	        }
+    	        return result;
+    	    
+       }    	   
+            
 		return 0;
        
 		

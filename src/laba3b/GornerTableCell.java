@@ -1,4 +1,4 @@
-package lab3;
+package laba3b;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -39,15 +39,31 @@ public class GornerTableCell  implements TableCellRenderer {
 	public Component getTableCellRendererComponent(JTable table,
 			Object value, boolean isSelected, boolean hasFocus, int row, int col) {
 		String formattedDouble = formatter.format(value);
+		
+		Double ValueOfCell = Double.valueOf(formattedDouble).doubleValue();
+		
 		// Установить текст надписи равным строковому представлению числа
 		label.setText(formattedDouble);
-		if (col==1 && needle!=null && needle.equals(formattedDouble)) {
+		long integer = Math.round((ValueOfCell - ValueOfCell.intValue())*10000);
+	
+		if(integer!=0 && ((ValueOfCell - ValueOfCell.intValue())>=0.1)) {
+		     while(integer%10 == 0) {
+			    integer/=10;
+		    }
+		}
+		
+		if((col == 0 || col==1) && ((ValueOfCell - ValueOfCell.intValue())>=0.1) && (integer == ValueOfCell.intValue())) {
+	    	panel.setBackground(Color.GREEN);
+		}
+		
+		else if (col==1 && needle!=null && needle.equals(formattedDouble)) {
 		// Номер столбца = 1 (т.е. второй столбец) + иголка не null
 		// (значит что-то ищем) +
 		// значение иголки совпадает со значением ячейки таблицы -
 		// окрасить задний фон панели в красный цвет
 		panel.setBackground(Color.RED);
-		} else {
+		} 
+		else {
 		// Иначе - в обычный белый
 		panel.setBackground(Color.WHITE);
 		}

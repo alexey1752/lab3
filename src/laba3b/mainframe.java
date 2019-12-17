@@ -1,4 +1,4 @@
-package lab3;
+package laba3b;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -32,6 +32,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class mainframe extends  JFrame {
 	private static final int width = 1200;
     private static final int height = 500;
